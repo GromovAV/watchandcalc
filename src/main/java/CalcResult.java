@@ -66,7 +66,6 @@ public class CalcResult implements ICalcResult {
             });
     } catch (IOException e) {
         System.out.println(e.getMessage());
-
     }
     }
 }

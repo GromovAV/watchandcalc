@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="watchandcalc:jar">
+    <output-path>$PROJECT_DIR$/OUT/artifacts/watchandcalc_jar</output-path>
+    <root id="archive" name="watchandcalc.jar">
+      <element id="module-output" name="watchandcalc" />
+    </root>
+  </artifact>
+</component>
