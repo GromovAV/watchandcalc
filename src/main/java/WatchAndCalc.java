@@ -10,12 +10,18 @@ public class WatchAndCalc {
 
     public static void main(String[] args) {
         try {
-            if(!DEFAULT_FILE.isEmpty()){
-                CalcResult calcResult = new CalcResult(DEFAULT_FILE);
+            String fullNameDefaultFile=INPUT_PATH+"\\"+DEFAULT_FILE;
+            if(Files.exists(Paths.get(fullNameDefaultFile)))
+            {
+                System.out.println("Запускаем вычисления на файле -Input.txt");
+                CalcResult calcResult=new CalcResult(DEFAULT_FILE);
                 calcResult.ReadText();
                 calcResult.Calculate();
                 calcResult.WriteText();
+                System.out.println("Ok!");
             }
+
+            System.out.println("Отслеживаем появление новых файлов и вычисляем их...");
 
             WatchService watcher = FileSystems.getDefault().newWatchService();
             Path logDir = Paths.get(INPUT_PATH);

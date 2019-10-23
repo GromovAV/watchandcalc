@@ -18,7 +18,7 @@ public class CalcResult implements ICalcResult {
 
     public List<String>  ReadText()
     {
-        String delims = "[ ,.?)(!0-9]+";
+        String delims = "[ ,.?)(![0-9]]+";
             try(BufferedReader br = new BufferedReader(new FileReader(WatchAndCalc.INPUT_PATH + "\\" + inputFile)))
             {
                 while ((br.read()) != -1) {
