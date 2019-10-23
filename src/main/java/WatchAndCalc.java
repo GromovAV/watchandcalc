@@ -10,11 +10,11 @@ public class WatchAndCalc {
 
     public static void main(String[] args) {
         try {
-            String fullNameDefaultFile=INPUT_PATH+"\\"+DEFAULT_FILE;
+            String fullNameDefaultFile = INPUT_PATH + "\\" + DEFAULT_FILE;
             if(Files.exists(Paths.get(fullNameDefaultFile)))
             {
                 System.out.println("Запускаем вычисления на файле -Input.txt");
-                CalcResult calcResult=new CalcResult(DEFAULT_FILE);
+                CalcResult calcResult = new CalcResult(DEFAULT_FILE);
                 calcResult.ReadText();
                 calcResult.Calculate();
                 calcResult.WriteText();
@@ -33,10 +33,13 @@ public class WatchAndCalc {
                     WatchEvent.Kind<?> kind = event.kind();
 
                     if (ENTRY_CREATE.equals(kind)) {
-                        CalcResult calcResult = new CalcResult(event.context().toString());
+                        String nameFile=event.context().toString();
+                        CalcResult calcResult = new CalcResult(nameFile);
+                        System.out.println("Вычисляем файл " + nameFile);
                         calcResult.ReadText();
                         calcResult.Calculate();
                         calcResult.WriteText();
+                        System.out.println("Ok!");
                     }
                 }
                 key.reset();
