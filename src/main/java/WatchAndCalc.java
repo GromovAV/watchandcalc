@@ -22,7 +22,6 @@ public class WatchAndCalc {
             }
 
             System.out.println("Отслеживаем появление новых файлов и вычисляем их...");
-
             WatchService watcher = FileSystems.getDefault().newWatchService();
             Path logDir = Paths.get(INPUT_PATH);
             logDir.register(watcher, ENTRY_CREATE);
@@ -31,7 +30,6 @@ public class WatchAndCalc {
                 WatchKey key = watcher.take();
                 for (WatchEvent<?> event : key.pollEvents()) {
                     WatchEvent.Kind<?> kind = event.kind();
-
                     if (ENTRY_CREATE.equals(kind)) {
                         String nameFile=event.context().toString();
                         CalcResult calcResult = new CalcResult(nameFile);
